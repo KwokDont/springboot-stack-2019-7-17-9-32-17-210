@@ -16,7 +16,7 @@ public class ProcuratorateController {
     private ProcuratorateRepository procuratorateRepository;
 
     @GetMapping("/criminalcases/{id}")
-    public Optional<Procuratorate> findCaseById(@PathVariable String id){
+    public Optional<Procuratorate> findProcuratorateById(@PathVariable String id){
         return procuratorateRepository.findById(id);
     }
 }

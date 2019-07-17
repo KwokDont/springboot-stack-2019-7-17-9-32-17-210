@@ -1,7 +1,7 @@
 package com.tw.apistackbase.controller;
 
-import com.tw.apistackbase.model.CaseElement;
-import com.tw.apistackbase.repository.CaseElementRepository;
+import com.tw.apistackbase.model.Prosecutor;
+import com.tw.apistackbase.repository.ProsecutorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Optional;
 
 @RestController
-public class CaseElementController {
+public class ProsecutorController {
 
     @Autowired
-    private CaseElementRepository caseElementRepository;
+    private ProsecutorRepository prosecutorRepository;
 
     @GetMapping("/criminalcases/{id}")
-    public Optional<CaseElement> findElementById(@PathVariable String id){
-        return caseElementRepository.findById(id);
+    public Optional<Prosecutor> findProsecutorById(@PathVariable String id){
+        return prosecutorRepository.findById(id);
     }
 }
