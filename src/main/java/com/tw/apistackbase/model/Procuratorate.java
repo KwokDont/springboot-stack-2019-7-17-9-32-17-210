@@ -15,6 +15,9 @@ public class Procuratorate {
     @Column(nullable = false, unique = true)
     private String procuratorateName;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Prosecutor> prosecutors;
+
     public Procuratorate() {
     }
 
@@ -36,5 +39,13 @@ public class Procuratorate {
 
     public void setProcuratorateName(String procuratorateName) {
         this.procuratorateName = procuratorateName;
+    }
+
+    public List<Prosecutor> getProsecutors() {
+        return prosecutors;
+    }
+
+    public void setProsecutors(List<Prosecutor> prosecutors) {
+        this.prosecutors = prosecutors;
     }
 }
