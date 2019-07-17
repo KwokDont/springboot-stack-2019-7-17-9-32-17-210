@@ -19,11 +19,13 @@ public class CriminalCase {
     @Column(nullable = false)
     private long incidentTime;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    private CaseElement caseElement;
+
     public CriminalCase() {
     }
 
-    public CriminalCase(int id, String caseName, long incidentTime) {
-        this.id = id;
+    public CriminalCase(String caseName, long incidentTime) {
         this.caseName = caseName;
         this.incidentTime = incidentTime;
     }
@@ -51,4 +53,8 @@ public class CriminalCase {
     public void setIncidentTime(long incidentTime) {
         this.incidentTime = incidentTime;
     }
+
+    public CaseElement getCaseElement() { return caseElement; }
+
+    public void setCaseElement(CaseElement caseElement) { this.caseElement = caseElement; }
 }
