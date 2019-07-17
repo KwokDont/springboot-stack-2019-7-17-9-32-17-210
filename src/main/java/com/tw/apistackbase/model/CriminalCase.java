@@ -1,18 +1,22 @@
 package com.tw.apistackbase.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "criminal_case")
 public class CriminalCase {
 
     @Id
+    @GenericGenerator(name = "jpa-uuid", strategy = "uuid")
     @GeneratedValue
     private int id;
+
+    @Column(nullable = false)
     private String caseName;
+
+    @Column(nullable = false)
     private long incidentTime;
 
     public CriminalCase() {
