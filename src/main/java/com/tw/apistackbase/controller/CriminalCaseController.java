@@ -26,4 +26,11 @@ public class CriminalCaseController {
     public List<CriminalCase> findAllCase(){
         return criminalCaseRepository.findAllByOrderByIncidentTimeDesc();
     }
+
+    @GetMapping("/criminalcases/{name}")
+    public List<CriminalCase> findCasesByName(@PathVariable String name){
+        return criminalCaseRepository.findAllByCaseName(name);
+    }
+
+    
 }
