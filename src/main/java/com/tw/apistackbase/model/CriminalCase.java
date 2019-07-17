@@ -22,6 +22,9 @@ public class CriminalCase {
     @OneToOne(cascade = CascadeType.ALL)
     private CaseElement caseElement;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Procuratorate procuratorate;
+
     public CriminalCase() {
     }
 
@@ -57,4 +60,8 @@ public class CriminalCase {
     public CaseElement getCaseElement() { return caseElement; }
 
     public void setCaseElement(CaseElement caseElement) { this.caseElement = caseElement; }
+
+    public Procuratorate getProcuratorate() { return procuratorate; }
+
+    public void setProcuratorate(Procuratorate procuratorate) { this.procuratorate = procuratorate; }
 }
