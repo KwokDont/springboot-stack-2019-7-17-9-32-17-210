@@ -45,5 +45,16 @@ class CriminalCaseRepositoryTest {
 
         Assertions.assertEquals("liu",cases.getCaseName());
     }
-    
+
+    @Test
+    public void should_return_case_when_find_case_by_name(){
+        CriminalCase criminalCase = new CriminalCase("liunan",new Date().getTime());
+
+        criminalCaseRepository.save(criminalCase);
+
+        List<CriminalCase> criminalCases = criminalCaseRepository.findAllByCaseName(criminalCase.getCaseName());
+        CriminalCase cases = criminalCases.get(0);
+
+        Assertions.assertEquals(criminalCase.getIncidentTime(),cases.getIncidentTime());
+    }
 }
