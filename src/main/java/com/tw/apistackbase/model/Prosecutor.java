@@ -2,10 +2,7 @@ package com.tw.apistackbase.model;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Prosecutor {
@@ -16,6 +13,10 @@ public class Prosecutor {
 
     @Column(nullable = false)
     private String prosecutorName;
+
+    @Transient
+    @Column(name = "Procuratorate_id")
+    private String procuratorateId;
 
     public String getProsecutorId() {
         return prosecutorId;
