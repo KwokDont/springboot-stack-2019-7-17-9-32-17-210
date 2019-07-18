@@ -14,7 +14,7 @@ spring:
     password:
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
   fiyway:
     enabled: true
     locations: ClassPath:db/migration

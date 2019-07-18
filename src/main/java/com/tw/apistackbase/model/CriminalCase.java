@@ -9,7 +9,6 @@ import javax.persistence.*;
 public class CriminalCase {
 
     @Id
-    @GenericGenerator(name = "jpa-uuid", strategy = "uuid")
     @GeneratedValue
     private int id;
 
@@ -20,9 +19,11 @@ public class CriminalCase {
     private long incidentTime;
 
     @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "case_element_id",referencedColumnName = "caseElementId")
     private CaseElement caseElement;
 
     @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "procuratorate_id",referencedColumnName = "procuratorateId")
     private Procuratorate procuratorate;
 
     public CriminalCase() {

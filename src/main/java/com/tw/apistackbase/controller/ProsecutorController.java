@@ -15,8 +15,8 @@ public class ProsecutorController {
     @Autowired
     private ProsecutorRepository prosecutorRepository;
 
-    @GetMapping("/criminalcases/{id}")
-    public Optional<Prosecutor> findProsecutorById(@PathVariable String id){
-        return prosecutorRepository.findById(id);
-    }
+//    @GetMapping("/criminalcases/{id}")
+//    public Optional<Prosecutor> findProsecutorById(@PathVariable String id){
+//        return prosecutorRepository.findById(id);
+//    }
 }

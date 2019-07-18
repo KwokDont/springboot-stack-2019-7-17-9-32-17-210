@@ -17,21 +17,21 @@ public class CriminalCaseController {
 
     @Autowired
     private CriminalCaseRepository criminalCaseRepository;
+//
+//    @GetMapping("/criminalcases/{id}")
+//    public Optional<CriminalCase> findCaseById(@PathVariable int id){
+//        return criminalCaseRepository.findById(id);
+//    }
+//
+//    @GetMapping("/criminalcases")
+//    public List<CriminalCase> findAllCase(){
+//        return criminalCaseRepository.findAllByOrderByIncidentTimeDesc();
+//    }
 
-    @GetMapping("/criminalcases/{id}")
-    public Optional<CriminalCase> findCaseById(@PathVariable int id){
-        return criminalCaseRepository.findById(id);
-    }
-
-    @GetMapping("/criminalcases")
-    public List<CriminalCase> findAllCase(){
-        return criminalCaseRepository.findAllByOrderByIncidentTimeDesc();
-    }
-
-    @GetMapping("/criminalcases/{name}")
-    public List<CriminalCase> findCasesByName(@PathVariable String name){
-        return criminalCaseRepository.findAllByCaseName(name);
-    }
+//    @GetMapping("/criminalcases/{name}")
+//    public List<CriminalCase> findCasesByName(@PathVariable String name){
+//        return criminalCaseRepository.findAllByCaseName(name);
+//    }
 
     @DeleteMapping("/criminalcases/{id}")
     public void deleteCasesById(@PathVariable int id){
