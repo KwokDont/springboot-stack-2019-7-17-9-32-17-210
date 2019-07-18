@@ -2,6 +2,7 @@ package com.tw.apistackbase;
 
 import com.tw.apistackbase.model.CriminalCase;
 import com.tw.apistackbase.model.Procuratorate;
+import com.tw.apistackbase.model.Prosecutor;
 import com.tw.apistackbase.repository.CriminalCaseRepository;
 import com.tw.apistackbase.repository.ProcuratorateRepository;
 import org.junit.jupiter.api.Assertions;
@@ -45,5 +46,19 @@ public class ProcuratorateRepositoryTest {
         Procuratorate procuratorate1 = procuratorateRepository.findById(criminalCases.getProcuratorate().getId()).get();
 
         Assertions.assertEquals("liunan",procuratorate1.getProcuratorateName());
+    }
+
+    @Test
+    public void should_return_procuratorate_with_prosecutor_when_find_procuratorate(){
+        Procuratorate procuratorate = new Procuratorate();
+        procuratorate.setProcuratorateName("liunan");
+        Procuratorate procuratorate2 = procuratorateRepository.save(procuratorate);
+        Prosecutor prosecutor = new Prosecutor("123","vanvan",procuratorate2.getId());
+        procuratorate2.setProsecutors(prosecutor);
+        procuratorate2 = procuratorateRepository.save(procuratorate);
+        Procuratorate procuratorate3 = procuratorateRepository.findById(procuratorate2.getId()).get();
+
+        Assertions.assertEquals(1,procuratorate3.getProsecutors().size());
+        Assertions.assertEquals("vanvan",procuratorate3.getProsecutors().get(0).getProsecutorName());
     }
 }

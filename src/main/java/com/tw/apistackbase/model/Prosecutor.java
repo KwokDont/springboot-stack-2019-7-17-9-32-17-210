@@ -14,6 +14,15 @@ public class Prosecutor {
     @Column(nullable = false)
     private String prosecutorName;
 
+    public Prosecutor() {
+    }
+
+    public Prosecutor(String id, String prosecutorName, String procuratorateId) {
+        this.id = id;
+        this.prosecutorName = prosecutorName;
+        this.procuratorateId = procuratorateId;
+    }
+
     @Transient
     private String procuratorateId;
 

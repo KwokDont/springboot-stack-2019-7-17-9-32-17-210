@@ -3,6 +3,7 @@ package com.tw.apistackbase.model;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -22,17 +23,18 @@ public class Procuratorate {
     public Procuratorate() {
     }
 
+    public void setProsecutors(Prosecutor prosecutor){
+        prosecutors = new ArrayList<>();
+        prosecutors.add(prosecutor);
+    }
+
     public Procuratorate(String procuratorateName) {
         this.procuratorateName = procuratorateName;
     }
 
-    public String getId() {
-        return id;
-    }
+    public String getId() { return id; }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+    public void setId(String id) { this.id = id; }
 
     public String getProcuratorateName() {
         return procuratorateName;
