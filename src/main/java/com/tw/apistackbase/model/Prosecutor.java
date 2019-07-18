@@ -15,7 +15,6 @@ public class Prosecutor {
     private String prosecutorName;
 
     @Transient
-    @Column(name = "Procuratorate_id")
     private String procuratorateId;
 
     public String getProsecutorId() {
