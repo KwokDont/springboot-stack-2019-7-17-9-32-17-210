@@ -10,6 +10,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.Date;
+import java.util.List;
 
 @DataJpaTest
 @ExtendWith(SpringExtension.class)
@@ -29,4 +30,20 @@ class CriminalCaseRepositoryTest {
 
         Assertions.assertEquals("liunan",criminalCase1.getCaseName());
     }
+
+    @Test
+    public void should_return_case_list_desc_when_find_All_case(){
+        CriminalCase criminalCase = new CriminalCase("liunan",new Date().getTime());
+        CriminalCase criminalCase2 = new CriminalCase("liu",new Date().getTime()+200);
+        CriminalCase criminalCase3 = new CriminalCase("fan",new Date().getTime()+300);
+
+        criminalCaseRepository.save(criminalCase);
+        criminalCaseRepository.save(criminalCase3);
+        criminalCaseRepository.save(criminalCase2);
+        List<CriminalCase> criminalCases = criminalCaseRepository.findAllByOrderByIncidentTimeDesc();
+        CriminalCase cases = criminalCases.get(1);
+
+        Assertions.assertEquals("liu",cases.getCaseName());
+    }
+    
 }
