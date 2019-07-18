@@ -28,7 +28,7 @@ public class CaseElementRepositoryTest {
         CaseElement caseElement = new CaseElement("xingshi","susong");
         CaseElement caseElement1 = caseElementRepository.save(caseElement);
 
-        CaseElement cases = caseElementRepository.findById(caseElement1.getCaseElementId()).get();
+        CaseElement cases = caseElementRepository.findById(caseElement1.getId()).get();
 
         Assertions.assertEquals("xingshi",cases.getObjectiveComponent());
     }
@@ -40,7 +40,7 @@ public class CaseElementRepositoryTest {
         CriminalCase criminalCase = new CriminalCase("liunan",new Date().getTime());
         criminalCase.setCaseElement(caseElement);
         CriminalCase criminalCase2 = criminalCaseRepository.save(criminalCase);
-        CaseElement cases = caseElementRepository.findById(criminalCaseRepository.findById(criminalCase2.getId()).get().getCaseElement().getCaseElementId()).get();
+        CaseElement cases = caseElementRepository.findById(criminalCaseRepository.findById(criminalCase2.getId()).get().getCaseElement().getId()).get();
 
         Assertions.assertEquals("xingshi",cases.getObjectiveComponent());
     }

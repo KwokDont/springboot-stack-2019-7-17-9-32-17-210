@@ -10,13 +10,13 @@ public class Procuratorate {
     @Id
     @GenericGenerator(name = "jpa-uuid", strategy = "uuid")
     @GeneratedValue(generator = "jpa-uuid")
-    private String procuratorateId;
+    private String id;
 
     @Column(nullable = false, unique = true)
     private String procuratorateName;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "Procuratorate_id",referencedColumnName = "procuratorateId")
+    @JoinColumn(name = "Procuratorate_id",referencedColumnName = "id")
     private List<Prosecutor> prosecutors;
 
     public Procuratorate() {
@@ -26,12 +26,12 @@ public class Procuratorate {
         this.procuratorateName = procuratorateName;
     }
 
-    public String getProcuratorateId() {
-        return procuratorateId;
+    public String getId() {
+        return id;
     }
 
-    public void setProcuratorateId(String procuratorateId) {
-        this.procuratorateId = procuratorateId;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getProcuratorateName() {

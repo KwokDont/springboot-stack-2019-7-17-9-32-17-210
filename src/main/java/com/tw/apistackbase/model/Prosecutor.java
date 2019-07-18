@@ -9,7 +9,7 @@ public class Prosecutor {
     @Id
     @GenericGenerator(name = "jpa-uuid", strategy = "uuid")
     @GeneratedValue(generator = "jpa-uuid")
-    private String prosecutorId;
+    private String id;
 
     @Column(nullable = false)
     private String prosecutorName;
@@ -17,13 +17,9 @@ public class Prosecutor {
     @Transient
     private String procuratorateId;
 
-    public String getProsecutorId() {
-        return prosecutorId;
-    }
+    public String getId() { return id; }
 
-    public void setProsecutorId(String prosecutorId) {
-        this.prosecutorId = prosecutorId;
-    }
+    public void setId(String id) { this.id = id; }
 
     public String getProsecutorName() {
         return prosecutorName;

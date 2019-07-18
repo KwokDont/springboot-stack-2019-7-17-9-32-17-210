@@ -19,11 +19,11 @@ public class CriminalCase {
     private long incidentTime;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "case_element_id",referencedColumnName = "caseElementId")
+    @JoinColumn(name = "case_element_id",referencedColumnName = "id")
     private CaseElement caseElement;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "procuratorate_id",referencedColumnName = "procuratorateId")
+    @JoinColumn(name = "procuratorate_id",referencedColumnName = "id")
     private Procuratorate procuratorate;
 
     public CriminalCase() {

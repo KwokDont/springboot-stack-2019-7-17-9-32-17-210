@@ -10,7 +10,7 @@ public class CaseElement {
     @Id
     @GenericGenerator(name = "jpa-uuid", strategy = "uuid")
     @GeneratedValue(generator = "jpa-uuid")
-    private String caseElementId;
+    private String id;
 
     @Column(nullable = false)
     private String objectiveComponent;
@@ -26,12 +26,12 @@ public class CaseElement {
         this.subjectiveComponent = subjectiveComponent;
     }
 
-    public String getCaseElementId() {
-        return caseElementId;
+    public String getId() {
+        return id;
     }
 
-    public void setCaseElementId(String caseElementId) {
-        this.caseElementId = caseElementId;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getObjectiveComponent() {
